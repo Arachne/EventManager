@@ -17,3 +17,8 @@ The best way to install Arachne/EventManager is using  [Composer](http://getcomp
 ```sh
 $ composer require arachne/event-manager
 ```
+
+Documentation
+----
+
+Learn more in the [documentation](docs/index.md).
