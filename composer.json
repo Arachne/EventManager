@@ -16,6 +16,7 @@
         "arachne/container-adapter": "^0.1.0|^0.2.0",
         "doctrine/common": "^2.5.0",
         "nette/di": "^2.3.0",
+        "nette/utils": "^2.3.0",
         "symfony/doctrine-bridge": "^2.8.0|^3.0.0"
     },
     "require-dev": {

@@ -12,6 +12,15 @@ use Symfony\Bridge\Doctrine\ContainerAwareEventManager;
  */
 class EventManagerExtensionTest extends Unit
 {
+    /**
+     * @expectedException Nette\Utils\AssertionException
+     * @expectedExceptionMessage Subscriber 'subscriber' doesn't implement 'Doctrine\Common\EventSubscriber'.
+     */
+    public function testSubscriberException()
+    {
+        $this->createContainer('subscriber-exception.neon');
+    }
+
     public function testSubscriber()
     {
         $container = $this->createContainer('subscriber.neon');
