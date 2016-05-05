@@ -1,0 +1,9 @@
+extensions:
+    arachne.containeradapter: Arachne\ContainerAdapter\DI\ContainerAdapterExtension
+    arachne.eventmanager: Arachne\EventManager\DI\EventManagerExtension
+
+services:
+    subscriber:
+        class: Tests\Integration\Fixtures\Subscriber
+        tags:
+            - arachne.eventManager.subscriber
