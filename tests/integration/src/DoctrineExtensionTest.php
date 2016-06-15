@@ -41,7 +41,8 @@ class EventManagerExtensionTest extends Unit
     {
         $config = new Configurator();
         $config->setTempDirectory(TEMP_DIR);
-        $config->addConfig(__DIR__ . '/../config/' . $file, false);
+        $config->addConfig(__DIR__.'/../config/'.$file, false);
+
         return $config->createContainer();
     }
 }
