@@ -2,7 +2,6 @@
 
 namespace Tests\Integration;
 
-use Arachne\Bootstrap\Configurator;
 use Codeception\Test\Unit;
 use Doctrine\Common\EventManager;
 use Symfony\Bridge\Doctrine\ContainerAwareEventManager;
@@ -18,12 +17,14 @@ class EventManagerExtensionTest extends Unit
      */
     public function testSubscriberException()
     {
-        $this->createContainer('subscriber-exception.neon');
+        $this->tester->useConfigFiles(['config/subscriber-exception.neon']);
+        $this->tester->getContainer();
     }
 
     public function testSubscriber()
     {
-        $container = $this->createContainer('subscriber.neon');
+        $this->tester->useConfigFiles(['config/subscriber.neon']);
+        $container = $this->tester->getContainer();
 
         /* @var $evm EventManager */
         $evm = $container->getByType(EventManager::class);
@@ -35,14 +36,5 @@ class EventManagerExtensionTest extends Unit
         $this->assertFalse($container->isCreated('subscriber'));
         $evm->dispatchEvent('barEvent');
         $this->assertTrue($container->isCreated('subscriber'));
-    }
-
-    private function createContainer($file)
-    {
-        $config = new Configurator();
-        $config->setTempDirectory(TEMP_DIR);
-        $config->addConfig(__DIR__.'/../config/'.$file, false);
-
-        return $config->createContainer();
     }
 }
