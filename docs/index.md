@@ -16,8 +16,8 @@ Now add these extensions to your config.neon.
 
 ```yml
 extensions:
-    arachne.containeradapter: Arachne/ContainerAdapter/DI/ContainerAdapterExtension
-    arachne.eventmanager: Arachne/EventManager/DI/EventManagerExtension
+    arachne.containeradapter: Arachne\ContainerAdapter\DI\ContainerAdapterExtension
+    arachne.eventmanager: Arachne\EventManager\DI\EventManagerExtension
 ```
 
 Subscribers
