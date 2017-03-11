@@ -2,6 +2,7 @@
 
 namespace Tests\Integration;
 
+use Arachne\Codeception\Module\NetteDIModule;
 use Codeception\Test\Unit;
 use Doctrine\Common\EventManager;
 use Symfony\Bridge\Doctrine\ContainerAwareEventManager;
@@ -11,6 +12,11 @@ use Symfony\Bridge\Doctrine\ContainerAwareEventManager;
  */
 class EventManagerExtensionTest extends Unit
 {
+    /**
+     * @var NetteDIModule
+     */
+    protected $tester;
+
     /**
      * @expectedException \Nette\Utils\AssertionException
      * @expectedExceptionMessage Subscriber 'subscriber' doesn't implement 'Doctrine\Common\EventSubscriber'.
