@@ -2,9 +2,11 @@
 
 namespace Arachne\EventManager\DI;
 
+use Doctrine\Common\EventSubscriber;
 use Nette\DI\CompilerExtension;
 use Nette\Utils\AssertionException;
 use ReflectionClass;
+use Symfony\Bridge\Doctrine\ContainerAwareEventManager;
 
 /**
  * @author Jáchym Toušek <enumag@gmail.com>
@@ -21,7 +23,7 @@ class EventManagerExtension extends CompilerExtension
         $builder = $this->getContainerBuilder();
 
         $builder->addDefinition($this->prefix('eventManager'))
-            ->setClass('Symfony\Bridge\Doctrine\ContainerAwareEventManager');
+            ->setClass(ContainerAwareEventManager::class);
     }
 
     public function beforeCompile()
@@ -33,7 +35,7 @@ class EventManagerExtension extends CompilerExtension
         foreach ($builder->findByTag(self::TAG_SUBSCRIBER) as $name => $attributes) {
             $class = $builder->getDefinition($name)->getClass();
 
-            if (!is_subclass_of($class, 'Doctrine\Common\EventSubscriber')) {
+            if (!is_subclass_of($class, EventSubscriber::class)) {
                 throw new AssertionException("Subscriber '$name' doesn't implement 'Doctrine\Common\EventSubscriber'.");
             }
 
