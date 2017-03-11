@@ -45,11 +45,14 @@ class EventManagerExtension extends CompilerExtension
                 );
             }
 
-            $evm->addSetup('?->addEventListener(?, ?)', [
-                '@self',
-                (new ReflectionClass($class))->newInstanceWithoutConstructor()->getSubscribedEvents(),
-                $name, // Intentionally without @ for laziness.
-            ]);
+            $evm->addSetup(
+                '?->addEventListener(?, ?)',
+                [
+                    '@self',
+                    (new ReflectionClass($class))->newInstanceWithoutConstructor()->getSubscribedEvents(),
+                    $name, // Intentionally without @ for laziness.
+                ]
+            );
         }
     }
 }
