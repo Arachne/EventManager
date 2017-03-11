@@ -19,7 +19,7 @@ class EventManagerExtensionTest extends Unit
 
     /**
      * @expectedException \Nette\Utils\AssertionException
-     * @expectedExceptionMessage Subscriber 'subscriber' doesn't implement 'Doctrine\Common\EventSubscriber'.
+     * @expectedExceptionMessage Subscriber "subscriber" doesn't implement "Doctrine\Common\EventSubscriber".
      */
     public function testSubscriberException()
     {

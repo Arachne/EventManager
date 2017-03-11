@@ -36,7 +36,13 @@ class EventManagerExtension extends CompilerExtension
             $class = $builder->getDefinition($name)->getClass();
 
             if (!is_subclass_of($class, EventSubscriber::class)) {
-                throw new AssertionException("Subscriber '$name' doesn't implement 'Doctrine\Common\EventSubscriber'.");
+                throw new AssertionException(
+                    sprintf(
+                        'Subscriber "%s" doesn\'t implement "%s".',
+                        $name,
+                        EventSubscriber::class
+                    )
+                );
             }
 
             $evm->addSetup('?->addEventListener(?, ?)', [
