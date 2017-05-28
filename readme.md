@@ -11,14 +11,16 @@ Arachne/EventManager
 
 Simple integration of Doctrine EventManager to Nette framework.
 
+
 Installation
 ----
 
 The best way to install Arachne/EventManager is using  [Composer](http://getcomposer.org/):
 
 ```sh
-$ composer require arachne/event-manager
+composer require arachne/event-manager
 ```
+
 
 Documentation
 ----
