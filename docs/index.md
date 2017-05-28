@@ -3,13 +3,14 @@ Documentation
 
 This package integrates EventManager from [doctrine/common](https://github.com/doctrine/common) to Nette Framework.
 
+
 Installation
 ----
 
 The best way to install Arachne/EventManager is using [Composer](http://getcomposer.org/).
 
 ```sh
-$ composer require arachne/event-manager
+composer require arachne/event-manager
 ```
 
 Now add these extensions to your config.neon.
@@ -19,6 +20,7 @@ extensions:
     arachne.containeradapter: Arachne\ContainerAdapter\DI\ContainerAdapterExtension
     arachne.eventmanager: Arachne\EventManager\DI\EventManagerExtension
 ```
+
 
 Subscribers
 ----
@@ -44,6 +46,7 @@ decorator:
 services:
     subscriber: App\AdminModule\Event\Subscriber
 ```
+
 
 Limitations
 ----
