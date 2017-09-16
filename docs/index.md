@@ -51,6 +51,6 @@ services:
 Limitations
 ----
 
-This integration of EventManager is meant to be used only for Doctrine events. For custom events it is recommended to use [Arachne/EventDispatcher](https://github.com/Arachne/EventDispatcher). It is not wrong to use both in the same application. In fact it is the recommended approach. Symfony framework uses it as well.
+This integration of EventManager is meant to be used only for Doctrine events. For custom events it is recommended to use [contributte/event-dispatcher](https://github.com/contributte/event-dispatcher). It is not wrong to use both in the same application. In fact it is the recommended approach. Symfony framework uses it as well.
 
 Also this integration is written to be as simple as possible so there is no support for priorities at the moment. If you need to use priorities for Doctrine events use [Kdyby/Events](https://github.com/Kdyby/Events) instead.
