@@ -21,13 +21,13 @@ class EventManagerExtensionTest extends Unit
      * @expectedException \Nette\Utils\AssertionException
      * @expectedExceptionMessage Subscriber "subscriber" doesn't implement "Doctrine\Common\EventSubscriber".
      */
-    public function testSubscriberException()
+    public function testSubscriberException(): void
     {
         $this->tester->useConfigFiles(['config/subscriber-exception.neon']);
         $this->tester->getContainer();
     }
 
-    public function testSubscriber()
+    public function testSubscriber(): void
     {
         $this->tester->useConfigFiles(['config/subscriber.neon']);
         $container = $this->tester->getContainer();

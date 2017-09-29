@@ -18,7 +18,7 @@ class EventManagerExtension extends CompilerExtension
      */
     const TAG_SUBSCRIBER = 'arachne.eventManager.subscriber';
 
-    public function loadConfiguration()
+    public function loadConfiguration(): void
     {
         $builder = $this->getContainerBuilder();
 
@@ -26,7 +26,7 @@ class EventManagerExtension extends CompilerExtension
             ->setClass(ContainerAwareEventManager::class);
     }
 
-    public function beforeCompile()
+    public function beforeCompile(): void
     {
         $builder = $this->getContainerBuilder();
 

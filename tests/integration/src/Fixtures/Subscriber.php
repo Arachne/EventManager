@@ -9,14 +9,14 @@ use Doctrine\Common\EventSubscriber;
  */
 class Subscriber implements EventSubscriber
 {
-    public function getSubscribedEvents()
+    public function getSubscribedEvents(): array
     {
         return [
             'barEvent',
         ];
     }
 
-    public function barEvent()
+    public function barEvent(): void
     {
     }
 }
