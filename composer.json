@@ -15,7 +15,7 @@
         "php": "^7.1.0",
         "arachne/container-adapter": "^0.3.0",
         "doctrine/common": "^2.7.0",
-        "nette/di": "^2.4.0",
+        "nette/di": "^2.4.10",
         "nette/utils": "^2.4.0",
         "symfony/doctrine-bridge": "^3.0.0"
     },

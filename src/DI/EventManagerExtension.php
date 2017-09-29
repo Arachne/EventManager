@@ -23,7 +23,7 @@ class EventManagerExtension extends CompilerExtension
         $builder = $this->getContainerBuilder();
 
         $builder->addDefinition($this->prefix('eventManager'))
-            ->setClass(ContainerAwareEventManager::class);
+            ->setType(ContainerAwareEventManager::class);
     }
 
     public function beforeCompile(): void
