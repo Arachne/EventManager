@@ -17,7 +17,7 @@
         "doctrine/common": "^2.7.0",
         "nette/di": "^2.4.10",
         "nette/utils": "^2.4.0",
-        "symfony/doctrine-bridge": "^3.0.0 || ^4.0.0"
+        "symfony/doctrine-bridge": "^4.0.0"
     },
     "require-dev": {
         "arachne/codeception": "^0.8.0",
