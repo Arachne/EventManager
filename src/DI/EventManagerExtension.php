@@ -37,7 +37,7 @@ class EventManagerExtension extends CompilerExtension
         foreach ($builder->findByTag(self::TAG_SUBSCRIBER) as $name => $attributes) {
             $class = $builder->getDefinition($name)->getClass();
 
-            if (!is_subclass_of($class, EventSubscriber::class)) {
+            if ($class === null || !is_subclass_of($class, EventSubscriber::class)) {
                 throw new AssertionException(
                     sprintf(
                         'Subscriber "%s" doesn\'t implement "%s".',
@@ -47,11 +47,14 @@ class EventManagerExtension extends CompilerExtension
                 );
             }
 
+            /** @var EventSubscriber $subscriber */
+            $subscriber = (new ReflectionClass($class))->newInstanceWithoutConstructor();
+
             $evm->addSetup(
                 '?->addEventListener(?, ?)',
                 [
                     '@self',
-                    (new ReflectionClass($class))->newInstanceWithoutConstructor()->getSubscribedEvents(),
+                    $subscriber->getSubscribedEvents(),
                     $name, // Intentionally without @ for laziness.
                 ]
             );

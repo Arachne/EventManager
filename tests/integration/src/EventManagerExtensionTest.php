@@ -36,13 +36,13 @@ class EventManagerExtensionTest extends Unit
 
         /* @var $evm EventManager */
         $evm = $container->getByType(EventManager::class);
-        $this->assertInstanceOf(ContainerAwareEventManager::class, $evm);
+        self::assertInstanceOf(ContainerAwareEventManager::class, $evm);
 
         // Ensure laziness.
-        $this->assertFalse($container->isCreated('subscriber'));
+        self::assertFalse($container->isCreated('subscriber'));
         $evm->dispatchEvent('fooEvent');
-        $this->assertFalse($container->isCreated('subscriber'));
+        self::assertFalse($container->isCreated('subscriber'));
         $evm->dispatchEvent('barEvent');
-        $this->assertTrue($container->isCreated('subscriber'));
+        self::assertTrue($container->isCreated('subscriber'));
     }
 }
